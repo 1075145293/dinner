@@ -18,3 +18,11 @@ export const register = function (data={}) {
         data: qs.stringify(data)
     })
 }
+
+export const postIdea = function (data={}) {
+    return service({
+        method: 'post',
+        url: '/api/postIdea',
+        data: qs.stringify(data)
+    })
+}
