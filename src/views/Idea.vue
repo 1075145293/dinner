@@ -12,7 +12,11 @@
     </div>
     <div class="tableContent" v-loading="loading">
       <el-table :data="tableData" max-height="400" style="width: 100%">
-        <el-table-column prop="date" label="日期" width="120"></el-table-column>
+        <el-table-column  label="日期" width="120">
+          <template slot-scope="scope">
+            <p>{{ timestampToTime(scope.row.date) }}</p>
+          </template>
+        </el-table-column>
         <el-table-column prop="name" label="姓名" width="120"></el-table-column>
         <el-table-column prop="idea" label="标题" width="200"></el-table-column>
         <el-table-column label="详情" prop="interpretation" width="300"></el-table-column>
@@ -96,6 +100,13 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
       this.search();
+    },
+    timestampToTime(dateTime) {
+      let date = new Date(dateTime);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      let Y = date.getFullYear() + '-';
+      let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+      let D = (date.getDate() < 10 ? '0'+date.getDate() : date.getDate()) + ' ';
+      return Y+M+D
     }
   },
   components: {}
