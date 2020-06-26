@@ -6,8 +6,8 @@
           <div class="labelTitle">
             姓名：
           </div>
-          <el-form-item  class="content-item" placeholder="请输入姓名，不超过10个字！" prop="name">
-            <el-input type="text" maxlength="10"  v-model="ruleForm.name" autocomplete></el-input>
+          <el-form-item  class="content-item"  prop="name">
+            <el-input type="text" maxlength="10" placeholder="请输入姓名，不超过10个字！"  v-model="ruleForm.name" autocomplete></el-input>
           </el-form-item>
           <div class="labelTitle">
             标题：

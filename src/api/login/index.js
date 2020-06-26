@@ -21,8 +21,16 @@ export const register = function (data={}) {
 
 export const postIdea = function (data={}) {
     return service({
-        method: 'post',
+        method: 'POST',
         url: '/api/postIdea',
         data: qs.stringify(data)
+    })
+}
+
+export const searchIdea = function (params) {
+    return service({
+        method: 'GET',
+        url: '/api/searchIdea',
+        params
     })
 }
